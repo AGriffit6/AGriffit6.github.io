@@ -37,8 +37,8 @@ class Shape {
         this.C = color(G, G, G);
 
         //this.S = S;
-        this.Ax = random(0, 0.25);
-        this.Ay = random(0, 0.25);
+        this.Ax = random(-0.25, 0.25);
+        this.Ay = random(-0.25, 0.25);
     }
 
     move() {

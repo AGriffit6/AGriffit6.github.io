@@ -2,23 +2,30 @@ function random(lo, hi) {
     return Math.random() * (hi - lo) + lo;
 }
 
+function randomColor() {
+    return color(random(255), random(255), random(255));
+}
+
 let shapes = [];
+var BGC;
 
 function setup() {
     // put setup code here
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent('p5');
 
-    // generate triangles
-    for (let i = 0; i < 45; i++) {
+    // generate shapes
+    for (let i = 0; i < 125; i++) {
         shapes.push(new Shape(random(20, windowWidth - 20), 
                               random(20, windowHeight - 20)));
     }
+
+    BGC = randomColor();
 }
 
 function draw() {
     // put drawing code here
-    background(100);
+    background(BGC);
 
     for (let i = 0; i < shapes.length; i++) {
         shapes[i].move();
@@ -31,14 +38,12 @@ class Shape {
     constructor(X, Y) {
         this.X = X;
         this.Y = Y;
-        this.R = random(2, 10);
+        this.R = random(7, 15);
 
-        let G = random(0, 75);
-        this.C = color(G, G, G);
+        this.C = randomColor();
 
-        //this.S = S;
-        this.Ax = random(0, 0.25);
-        this.Ay = random(0, 0.25);
+        this.Ax = random(-5, 5);
+        this.Ay = random(-5, 5);
     }
 
     move() {
@@ -57,9 +62,6 @@ class Shape {
         fill(this.C);
         noStroke();
 
-        quad(this.X, this.Y - this.R, 
-             this.X + this.R, this.Y, 
-             this.X, this.Y + this.R,
-             this.X - this.R, this.Y);
+        ellipse(this.X, this.Y, 2*this.R);
     }
 }
