@@ -12,12 +12,12 @@ var BGC;
 function setup() {
     // put setup code here
     let canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('p5');
+    canvas.parent('p2');
 
     // generate shapes
-    for (let i = 0; i < 125; i++) {
-        shapes.push(new Shape(random(20, windowWidth - 20), 
-                              random(20, windowHeight - 20)));
+    for (let i = 0; i < 100; i++) {
+        shapes.push(new Shape(random(20, width - 20), 
+                              random(20, height - 20)));
     }
 
     BGC = randomColor();
@@ -25,7 +25,7 @@ function setup() {
 
 function draw() {
     // put drawing code here
-    background(BGC);
+    background('powderblue');
 
     for (let i = 0; i < shapes.length; i++) {
         shapes[i].move();

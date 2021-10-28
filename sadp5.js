@@ -7,12 +7,12 @@ let shapes = [];
 function setup() {
     // put setup code here
     let canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('p5');
+    canvas.parent('p1');
 
     // generate triangles
     for (let i = 0; i < 45; i++) {
-        shapes.push(new Shape(random(20, windowWidth - 20), 
-                              random(20, windowHeight - 20)));
+        shapes.push(new Shape(random(20, width - 20), 
+                              random(20, height - 20)));
     }
 }
 
